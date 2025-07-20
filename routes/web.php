@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
 
 // Admin User Management
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::resource('users', \App\Http\Controllers\Modules\User\UserController::class, [
+    Route::resource('users', UserController::class, [
         'as' => 'admin'
     ]);
 });
@@ -32,3 +32,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Modular: Include Service module routes
+require base_path('app/Modules/Service/routes.php');
