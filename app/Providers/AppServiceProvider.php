@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Register Service module views
+        $this->loadViewsFrom(base_path('app/Modules/Service/Views'), 'Service');
     }
 }

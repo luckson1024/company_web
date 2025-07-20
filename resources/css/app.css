@@ -1,11 +1,24 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@layer base {
+    html {
+        font-family: 'Inter', 'Figtree', system-ui, sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Inter', 'Manrope', 'Sora', sans-serif;
+    }
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+@layer components {
+    .btn-primary {
+        @apply bg-navy text-white px-4 py-2 rounded hover:bg-opacity-90 transition-colors;
+    }
+    .btn-secondary {
+        @apply bg-lightgray text-charcoal px-4 py-2 rounded hover:bg-opacity-90 transition-colors;
+    }
+    .form-input {
+        @apply border-lightgray rounded focus:ring-electric focus:border-electric;
+    }
 }
